@@ -1,0 +1,25 @@
+type Query {
+  quotes: [Quote]
+  quote(id: ID!): Quote
+}
+
+type Mutation {
+  createQuote(createQuoteInput: CreateQuoteInput): Quote
+}
+
+type Subscription {
+  quoteCreated: Quote
+}
+
+type Quote {
+  id: Int
+  name: String
+  age: Int
+}
+"""
+Test comment
+"""
+input CreateQuoteInput {
+  name: String
+  age: Int
+}
