@@ -3,7 +3,7 @@ import { Quote } from '../graphql.schema';
 
 @Injectable()
 export class QuotesService {
-  private readonly quotes: Array<Quote> = [{ id: 1, name: 'Cat', age: 5 }];
+  private readonly quotes: Array<Quote> = [{ id: 1, name: 'Quote', age: 5 }];
 
   create(quote: Quote): Quote {
     quote.id = this.quotes.length + 1;
