@@ -1,21 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { Quote } from '../graphql.schema';
+import { NewQuoteInput } from './dto/new-quote.input';
+import { QuotesArgs } from './dto/quotes.args';
+import { Quote } from './models/quote.model';
 
 @Injectable()
 export class QuotesService {
-  private readonly quotes: Array<Quote> = [{ id: 1, name: 'Quote', age: 5 }];
-
-  create(quote: Quote): Quote {
-    quote.id = this.quotes.length + 1;
-    this.quotes.push(quote);
-    return quote;
+  async create(data: NewQuoteInput): Promise<Quote> {
+    return {} as Quote;
   }
 
-  findAll(): Quote[] {
-    return this.quotes;
+  async findAll(quotesArgs: QuotesArgs): Promise<Quote[]> {
+    return [] as Quote[];
   }
 
-  findOneById(id: number): Quote {
-    return this.quotes.find((quote) => quote.id === id);
+  async findOneById(id: number): Promise<Quote> {
+    return {} as Quote;
+  }
+
+  async remove(id: string): Promise<boolean> {
+    return true;
   }
 }
