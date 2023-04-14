@@ -1,5 +1,12 @@
 [
-  { "type": "home", "number": "212-555-1234" },
-  { "type": "cell", "number": "646-555-4567" },
-  { "type": "office", "number": "202-555-0182"}
+  { "author": "Plato", "quote": "Courage is knowing what not to fear." },
+  { "author": "Plato", "quote": "At the touch of love everyone becomes a poet." },
+  { "author": "Plato", "quote": "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light." },
+  { "author": "Plato", "quote": "Wise men speak because they have something to say; fools because they have to say something." },
+  { "author": "Plato", "quote": "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything." },
+  { "author": "Plato", "quote": "Knowledge which is acquired under compulsion obtains no hold on the mind." },
+  { "author": "Plato", "quote": "He who commits injustice is ever made more wretched than he who suffers it." },
+  { "author": "Plato", "quote": "We are twice armed if we fight with faith." },
+  { "author": "Plato", "quote": "Ignorance, the root and stem of all evil." },
+  { "author": "Plato", "quote": "The measure of a man is what he does with power." }
 ]
