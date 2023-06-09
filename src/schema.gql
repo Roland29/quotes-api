@@ -29,8 +29,9 @@ type Query {
 
 """quote """
 type Quote {
+  _id: String!
+  author: String!
   createdAt: DateTime!
-  id: ID!
   sentence: String
   updatedAt: DateTime!
 }

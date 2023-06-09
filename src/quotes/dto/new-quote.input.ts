@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsOptional, Length, MaxLength } from 'class-validator';
+import { Length, MaxLength } from 'class-validator';
 
 @InputType()
 export class NewQuoteInput {
@@ -8,7 +8,6 @@ export class NewQuoteInput {
   author: string;
 
   @Field({ nullable: true })
-  @IsOptional()
-  @Length(30, 255)
+  @Length(0, 255)
   sentence: string;
 }
