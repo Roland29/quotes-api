@@ -31,7 +31,7 @@ export class QuotesResolver {
     @Args('newQuoteData') newQuoteData: NewQuoteInput,
   ): Promise<Quote> {
     const quote = await this.quotesService.create(newQuoteData);
-    pubSub.publish('quoteAdded', { quoteAdded: quote });
+    await pubSub.publish('quoteAdded', { quoteAdded: quote });
     return quote;
   }
 
