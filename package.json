@@ -27,7 +27,7 @@
     "stopDocker": "docker-compose -f docker/docker-compose.yml down"
   },
   "dependencies": {
-    "@apollo/server": "^4.6.0",
+    "@apollo/server": "^4.9.1",
     "@nestjs/apollo": "^11.0.4",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
