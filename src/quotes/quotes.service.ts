@@ -1,21 +1,28 @@
 import { Injectable } from '@nestjs/common';
-import { Quote } from '../graphql.schema';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { NewQuoteInput } from './dto/new-quote.input';
+import { QuotesArgs } from './dto/quotes.args';
+import { Quote } from './models/quote.model';
 
 @Injectable()
 export class QuotesService {
-  private readonly quotes: Array<Quote> = [{ id: 1, name: 'Quote', age: 5 }];
-
-  create(quote: Quote): Quote {
-    quote.id = this.quotes.length + 1;
-    this.quotes.push(quote);
-    return quote;
+  constructor(
+    @InjectModel(Quote.name) private readonly quoteModel: Model<Quote>,
+  ) {}
+  async create(data: NewQuoteInput): Promise<Quote> {
+    return this.quoteModel.create(data);
   }
 
-  findAll(): Quote[] {
-    return this.quotes;
+  async findAll(quotesArgs: QuotesArgs): Promise<Quote[]> {
+    return this.quoteModel.find().exec();
   }
 
-  findOneById(id: number): Quote {
-    return this.quotes.find((quote) => quote.id === id);
+  async findOneById(id: number): Promise<Quote> {
+    return {} as Quote;
+  }
+
+  async remove(id: string): Promise<boolean> {
+    return true;
   }
 }

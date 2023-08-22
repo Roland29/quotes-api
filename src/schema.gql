@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+"""Date custom scalar type"""
+scalar Date
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  addQuote(newQuoteData: NewQuoteInput!): Quote!
+  removeQuote(id: String!): Boolean!
+}
+
+input NewQuoteInput {
+  author: String!
+  sentence: String
+}
+
+type Query {
+  quote(id: Float!): Quote!
+  quotes(skip: Int! = 0, take: Int! = 25): [Quote!]!
+}
+
+"""quote """
+type Quote {
+  _id: String!
+  author: String!
+  createdAt: DateTime!
+  sentence: String
+  updatedAt: DateTime!
+}
+
+type Subscription {
+  quoteAdded: Quote!
+}
