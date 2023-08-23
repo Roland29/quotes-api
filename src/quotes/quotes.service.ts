@@ -15,14 +15,26 @@ export class QuotesService {
   }
 
   async findAll(quotesArgs: QuotesArgs): Promise<Quote[]> {
-    return this.quoteModel.find().exec();
+    const { limit, skip } = quotesArgs;
+
+    const query = this.quoteModel.find();
+
+    if (typeof skip === 'number') {
+      query.skip(skip);
+    }
+
+    if (typeof limit === 'number') {
+      query.limit(limit);
+    }
+
+    return query.exec();
   }
 
-  async findOneById(id: number): Promise<Quote> {
-    return {} as Quote;
+  async findOneById(id: string): Promise<Quote> {
+    return this.quoteModel.findById(id);
   }
 
-  async remove(id: string): Promise<boolean> {
-    return true;
+  async remove(id: string): Promise<Quote> {
+    return this.quoteModel.findByIdAndRemove(id);
   }
 }

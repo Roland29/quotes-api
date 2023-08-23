@@ -1,12 +1,12 @@
 [
-  { "author": "Plato", "sentence": "Courage is knowing what not to fear." },
-  { "author": "Plato", "sentence": "At the touch of love everyone becomes a poet." },
-  { "author": "Plato", "sentence": "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light." },
-  { "author": "Plato", "sentence": "Wise men speak because they have something to say; fools because they have to say something." },
-  { "author": "Plato", "sentence": "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything." },
-  { "author": "Plato", "sentence": "Knowledge which is acquired under compulsion obtains no hold on the mind." },
-  { "author": "Plato", "sentence": "He who commits injustice is ever made more wretched than he who suffers it." },
-  { "author": "Plato", "sentence": "We are twice armed if we fight with faith." },
-  { "author": "Plato", "sentence": "Ignorance, the root and stem of all evil." },
-  { "author": "Plato", "sentence": "The measure of a man is what he does with power." }
+  { "author": "Plato", "sentence": "Courage is knowing what not to fear.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" }  },
+  { "author": "Plato", "sentence": "At the touch of love everyone becomes a poet.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" }},
+  { "author": "Plato", "sentence": "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "Wise men speak because they have something to say; fools because they have to say something.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "Knowledge which is acquired under compulsion obtains no hold on the mind.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "He who commits injustice is ever made more wretched than he who suffers it.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "We are twice armed if we fight with faith.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "Ignorance, the root and stem of all evil.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } },
+  { "author": "Plato", "sentence": "The measure of a man is what he does with power.", "createdAt": { "$date": "2023-08-22T19:10:42.655Z" }, "updatedAt": { "$date": "2023-08-22T19:10:42.655Z" } }
 ]
