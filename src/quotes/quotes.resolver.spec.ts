@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { QuotesResolver } from './quotes.resolver';
 import { QuotesService } from './quotes.service';
 import { NotFoundException } from '@nestjs/common';
-import { PubSub } from 'graphql-subscriptions';
+import { PUB_SUB } from '../pubSub/PubSub.provider';
 
 describe('QuotesResolver', () => {
   let resolver: QuotesResolver;
@@ -26,7 +26,7 @@ describe('QuotesResolver', () => {
           useValue: quotesService,
         },
         {
-          provide: PubSub,
+          provide: PUB_SUB,
           useValue: pubSub,
         },
       ],
