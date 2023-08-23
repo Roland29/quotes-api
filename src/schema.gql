@@ -23,8 +23,8 @@ input NewQuoteInput {
 }
 
 type Query {
-  quote(id: Float!): Quote!
-  quotes(skip: Int! = 0, take: Int! = 25): [Quote!]!
+  quote(id: String!): Quote!
+  quotes(limit: Int! = 25, skip: Int! = 0): [Quote!]!
 }
 
 """quote """

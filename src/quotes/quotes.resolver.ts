@@ -1,19 +1,21 @@
-import { NotFoundException } from '@nestjs/common';
+import { Inject, NotFoundException } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
-import { PubSub } from 'graphql-subscriptions';
 import { NewQuoteInput } from './dto/new-quote.input';
 import { QuotesArgs } from './dto/quotes.args';
 import { Quote } from './models/quote.model';
 import { QuotesService } from './quotes.service';
+import { PubSub } from 'graphql-subscriptions';
+import { PUB_SUB } from '../pubSub/PubSub.provider';
 
-const pubSub = new PubSub();
-
-@Resolver((of) => Quote)
+@Resolver(() => Quote)
 export class QuotesResolver {
-  constructor(private readonly quotesService: QuotesService) {}
+  constructor(
+    private readonly quotesService: QuotesService,
+    @Inject(PUB_SUB) private readonly pubSub: PubSub,
+  ) {}
 
-  @Query((returns) => Quote)
-  async quote(@Args('id') id: number): Promise<Quote> {
+  @Query(() => Quote)
+  async quote(@Args('id') id: string): Promise<Quote> {
     const quote = await this.quotesService.findOneById(id);
     if (!quote) {
       throw new NotFoundException(id);
@@ -21,27 +23,27 @@ export class QuotesResolver {
     return quote;
   }
 
-  @Query((returns) => [Quote])
+  @Query(() => [Quote])
   quotes(@Args() quotesArgs: QuotesArgs): Promise<Quote[]> {
     return this.quotesService.findAll(quotesArgs);
   }
 
-  @Mutation((returns) => Quote)
+  @Mutation(() => Quote)
   async addQuote(
     @Args('newQuoteData') newQuoteData: NewQuoteInput,
   ): Promise<Quote> {
     const quote = await this.quotesService.create(newQuoteData);
-    await pubSub.publish('quoteAdded', { quoteAdded: quote });
+    await this.pubSub.publish('quoteAdded', { quoteAdded: quote });
     return quote;
   }
 
-  @Mutation((returns) => Boolean)
+  @Mutation(() => Boolean)
   async removeQuote(@Args('id') id: string) {
-    return this.quotesService.remove(id);
+    return !!(await this.quotesService.remove(id));
   }
 
-  @Subscription((returns) => Quote)
+  @Subscription(() => Quote)
   quoteAdded() {
-    return pubSub.asyncIterator('quoteAdded');
+    return this.pubSub.asyncIterator('quoteAdded');
   }
 }
