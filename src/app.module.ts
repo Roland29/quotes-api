@@ -16,7 +16,9 @@ import { join } from 'path';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
       transformSchema: (schema) => upperDirectiveTransformer(schema, 'upper'),
-      installSubscriptionHandlers: true,
+      subscriptions: {
+        'graphql-ws': true,
+      },
       buildSchemaOptions: {
         directives: [
           new GraphQLDirective({
