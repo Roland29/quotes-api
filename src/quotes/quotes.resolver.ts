@@ -1,4 +1,4 @@
-import { Inject, NotFoundException } from '@nestjs/common';
+import { Inject, NotFoundException, UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { NewQuoteInput } from './dto/new-quote.input';
 import { QuotesArgs } from './dto/quotes.args';
@@ -6,7 +6,9 @@ import { Quote } from './models/quote.model';
 import { QuotesService } from './quotes.service';
 import { PubSub } from 'graphql-subscriptions';
 import { PUB_SUB } from '../pubSub/PubSub.provider';
+import { GqlApiKeyAuthGuard } from '../auth/guard/apiKey-auth.guard';
 
+@UseGuards(GqlApiKeyAuthGuard)
 @Resolver(() => Quote)
 export class QuotesResolver {
   constructor(
