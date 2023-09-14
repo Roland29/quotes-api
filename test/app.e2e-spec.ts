@@ -62,4 +62,25 @@ describe('QuotesApi (e2e)', () => {
       },
     });
   });
+
+  it('should return 400 if authentication fails', async () => {
+    // Send a GraphQL query using the Apollo Client
+    const query = `
+    query {
+      quote(id: "fake-id") {
+        _id
+        content
+      }
+    }
+  `;
+
+    const response = await httpServer
+      .post('/graphql')
+      .set({ 'api-key': 'invalid-api-key' })
+      .send({ query });
+    const { errors } = response.body;
+
+    // Assert that there are no errors
+    expect(errors[0].message).toEqual('Unauthorized');
+  });
 });
