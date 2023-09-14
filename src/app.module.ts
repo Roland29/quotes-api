@@ -6,14 +6,24 @@ import { upperDirectiveTransformer } from './common/directives/upper-case.direct
 import { MongooseModule } from '@nestjs/mongoose';
 import { QuotesModule } from './quotes/quotes.module';
 import { join } from 'path';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { GqlThrottlerGuard } from './common/guards/gqlThrottlerGuard';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
     QuotesModule,
     MongooseModule.forRoot('mongodb://localhost:27017/test'),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000, // Intervalle de temps en secondes
+        limit: 1, // Nombre maximum de requêtes par intervalle de temps
+      },
+    ]),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      context: ({ res, req }) => ({ res, req }),
       sortSchema: true,
       transformSchema: (schema) => upperDirectiveTransformer(schema, 'upper'),
       subscriptions: {
@@ -28,6 +38,12 @@ import { join } from 'path';
         ],
       },
     }),
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: GqlThrottlerGuard,
+    },
   ],
 })
 export class AppModule {}
