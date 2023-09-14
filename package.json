@@ -33,6 +33,7 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^12.0.9",
     "@nestjs/mongoose": "^9.2.2",
+    "@nestjs/passport": "^10.0.2",
     "@nestjs/platform-express": "^9.4.3",
     "@nestjs/throttler": "^5.0.0",
     "class-transformer": "^0.5.1",
@@ -42,6 +43,8 @@
     "graphql-subscriptions": "^2.0.0",
     "graphql-ws": "^5.14.0",
     "mongoose": "^7.5.0",
+    "passport": "^0.6.0",
+    "passport-headerapikey": "^1.2.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^4.4.1",
     "rxjs": "^7.8.1"

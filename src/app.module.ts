@@ -9,6 +9,7 @@ import { join } from 'path';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { GqlThrottlerGuard } from './common/guards/gqlThrottlerGuard';
 import { APP_GUARD } from '@nestjs/core';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { APP_GUARD } from '@nestjs/core';
         ],
       },
     }),
+    AuthModule,
   ],
   providers: [
     {
