@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import supertest from 'supertest';
+import * as supertest from 'supertest';
 import { AppModule } from '../src/app.module';
 import { DatabaseService } from '../src/database/database.service';
 import { Connection } from 'mongoose';
@@ -38,15 +38,17 @@ describe('QuotesApi (e2e)', () => {
     // Send a GraphQL query using the Apollo Client
     const query = `
     query {
-      quote(id: ${quote}) {
-        id
-        text
-        // Add other fields you want to test
+      quote(id: "${quote.insertedId.toString()}") {
+        _id
+        content
       }
     }
   `;
 
-    const response = await httpServer.post('/graphql').send({ query });
+    const response = await httpServer
+      .post('/graphql')
+      .set({ 'api-key': 'api-key-1' })
+      .send({ query });
     const { data, errors } = response.body;
 
     // Assert that there are no errors
@@ -55,9 +57,8 @@ describe('QuotesApi (e2e)', () => {
     // Assert the expected data
     expect(data).toEqual({
       quote: {
-        id: 'your-quote-id',
-        text: 'Your quote text',
-        // Add other expected data fields here
+        _id: quote.insertedId.toString(),
+        content: 'test',
       },
     });
   });
