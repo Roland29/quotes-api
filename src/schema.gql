@@ -19,7 +19,7 @@ type Mutation {
 
 input NewQuoteInput {
   author: String!
-  sentence: String
+  content: String
 }
 
 type Query {
@@ -31,8 +31,8 @@ type Query {
 type Quote {
   _id: String!
   author: String!
+  content: String
   createdAt: DateTime!
-  sentence: String
   updatedAt: DateTime!
 }
 

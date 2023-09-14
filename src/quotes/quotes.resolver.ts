@@ -6,7 +6,7 @@ import { Quote } from './models/quote.model';
 import { QuotesService } from './quotes.service';
 import { PubSub } from 'graphql-subscriptions';
 import { PUB_SUB } from '../pubSub/PubSub.provider';
-import { GqlApiKeyAuthGuard } from '../auth/guard/apiKey-auth.guard';
+import { GqlApiKeyAuthGuard } from '../auth/guards/apiKey-auth.guard';
 
 @UseGuards(GqlApiKeyAuthGuard)
 @Resolver(() => Quote)

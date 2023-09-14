@@ -37,7 +37,7 @@ describe('QuotesService', () => {
 
   describe('create', () => {
     it('should create a quote', async () => {
-      const data = { author: 'Author', sentence: 'Sentence' };
+      const data = { author: 'Author', content: 'content' };
       mockQuoteModel.create.mockResolvedValue(data);
 
       const result = await service.create(data);
@@ -49,8 +49,8 @@ describe('QuotesService', () => {
   describe('findAll', () => {
     it('should return a list of quotes with pagination', async () => {
       const quotes = [
-        { author: 'Author1', sentence: 'Sentence1' },
-        { author: 'Author2', sentence: 'Sentence2' },
+        { author: 'Author1', content: 'content1' },
+        { author: 'Author2', content: 'content2' },
       ];
       mockQuoteModel.exec.mockResolvedValue(quotes);
 
@@ -65,7 +65,7 @@ describe('QuotesService', () => {
 
   describe('findOneById', () => {
     it('should return a single quote', async () => {
-      const quote = { id: '123', author: 'Author', sentence: 'Sentence' };
+      const quote = { id: '123', author: 'Author', content: 'content' };
       mockQuoteModel.findById.mockResolvedValue(quote);
 
       const result = await service.findOneById('123');
@@ -77,7 +77,7 @@ describe('QuotesService', () => {
 
   describe('remove', () => {
     it('should remove and return the removed quote', async () => {
-      const quote = { id: '123', author: 'Author', sentence: 'Sentence' };
+      const quote = { id: '123', author: 'Author', content: 'content' };
       mockQuoteModel.findByIdAndRemove.mockResolvedValue(quote);
 
       const result = await service.remove('123');

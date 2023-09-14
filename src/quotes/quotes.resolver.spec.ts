@@ -41,7 +41,7 @@ describe('QuotesResolver', () => {
 
   describe('quote', () => {
     it('should return a single quote', async () => {
-      const result = { id: '123', author: 'Author', sentence: 'Sentence' };
+      const result = { id: '123', author: 'Author', content: 'content' };
       quotesService.findOneById.mockResolvedValue(result);
       expect(await resolver.quote('123')).toEqual(result);
     });
@@ -54,7 +54,7 @@ describe('QuotesResolver', () => {
 
   describe('quotes', () => {
     it('should return a list of quotes', async () => {
-      const result = [{ id: '123', author: 'Author', sentence: 'Sentence' }];
+      const result = [{ id: '123', author: 'Author', content: 'content' }];
       quotesService.findAll.mockResolvedValue(result);
       expect(await resolver.quotes({ skip: 1, limit: 1 })).toEqual(result);
     });
@@ -62,7 +62,7 @@ describe('QuotesResolver', () => {
 
   describe('addQuote', () => {
     it('should create a new quote and publish it', async () => {
-      const input = { author: 'Author', sentence: 'Sentence' };
+      const input = { author: 'Author', content: 'content' };
       const result = { id: '123', ...input };
       quotesService.create.mockResolvedValue(result);
 

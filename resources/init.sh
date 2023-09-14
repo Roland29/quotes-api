@@ -1,2 +1,2 @@
 #mongoimport --db <your_db_name> --collection <your_collection_name> --drop --file /docker-entrypoint-initdb.d/data.json --jsonArray
-mongoimport --db test --collection quotes --drop --file /docker-entrypoint-initdb.d/ddb.seed.json --jsonArray --stopOnError
+mongoimport --db app --collection quotes --drop --file /docker-entrypoint-initdb.d/ddb.seed.json --jsonArray --stopOnError
