@@ -40,4 +40,4 @@ jobs:
 
       - run: npm test
 
-      - run: npm test:e2e
+      - run: npm run test:e2e
