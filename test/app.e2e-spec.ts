@@ -12,7 +12,7 @@ describe('QuotesApi (e2e)', () => {
 
   beforeAll(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
-      imports: [AppModule], // Import your app module
+      imports: [AppModule],
     }).compile();
 
     app = moduleRef.createNestApplication();
