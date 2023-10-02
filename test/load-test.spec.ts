@@ -1,3 +1,8 @@
+/**
+ * The role of load testing is to assess the performance of the API.
+ * It can help us ensure that our system meets the goals of concurrent users and requests per second.
+ * It might be a good idea to run it as a part of a CI/CD pipeline.
+ **/
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 

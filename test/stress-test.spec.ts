@@ -1,3 +1,10 @@
+/**
+ * The goal of a stress test is to check the availability and stability of the system when under extreme conditions.
+ * We want to push the system to its limits and beyond. Thanks to doing that, we can determine what’s the maximum capacity of our system.
+ * It is also essential to make sure that when the system breaks, it can recover without manual intervention.
+ *
+ * Remember that stress testing is about pushing the performance limits of our system, so don’t hold back.
+ */
 import { batch } from 'k6/http';
 import { sleep } from 'k6';
 

@@ -1,3 +1,8 @@
+/**
+ * We don’t put our system into extreme circumstances when performing a soak test.
+ * Instead, we test the system’s reliability over a long period.
+ * This can reveal various bugs, memory leaks, or infrastructure issues resulting from the system being under pressure for an extended period.
+ */
 import { batch } from 'k6/http';
 import { sleep } from 'k6';
 

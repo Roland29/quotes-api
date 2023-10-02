@@ -1,3 +1,9 @@
+/**
+ * When spike testing, we perform a stress test that spikes to an extreme load over a very short period.
+ * By doing that, we can check how our system performs under a sudden heavy load and if it recovers once it subsides.
+ * For example, imagine you’ve just aired a commercial for your company on one of the social media platforms.
+ * By doing a spike test, we can check how our application can handle it.
+ */
 import { batch } from 'k6/http';
 import { sleep } from 'k6';
 

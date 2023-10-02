@@ -1,3 +1,7 @@
+/**
+ * The idea behind smoke testing is to ensure our system can handle a minimal load. It might be worth running it as a sanity check.
+ * The phrase smoke test originated from electronic hardware tests. If the device does not emit smoke when plugged in, it passes the smoke tests.
+ **/
 import http from 'k6/http';
 import { check } from 'k6';
 import { Counter } from 'k6/metrics';
