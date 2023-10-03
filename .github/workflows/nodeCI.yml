@@ -36,13 +36,17 @@ jobs:
 
       - name: Print DB
         env:
-          SUPER_SECRET: ${{ secrets.MONGO_CONNECTION_URI }}
-        run: echo "Hello My MONGO_CONNECTION_URI is $SUPER_SECRET"
+          MONGO_CONNECTION_URI: ${{ secrets.MONGO_CONNECTION_URI }}
+        run: echo "Hello My MONGO_CONNECTION_URI is $MONGO_CONNECTION_URI"
 
       - run: npm ci
 
       - run: npm run build --if-present
 
       - run: npm test
+        env:
+          MONGO_CONNECTION_URI: ${{ secrets.MONGO_CONNECTION_URI }}
 
       - run: npm run test:e2e
+        env:
+          MONGO_CONNECTION_URI: ${{ secrets.MONGO_CONNECTION_URI }}
