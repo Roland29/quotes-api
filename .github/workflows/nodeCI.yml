@@ -35,7 +35,9 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: Print DB
-        run: echo "Hello My MONGO_CONNECTION_URI is ${{secrets.MONGO_CONNECTION_URI}}"
+        env:
+          SUPER_SECRET: ${{ secrets.MONGO_CONNECTION_URI }}
+        run: echo "Hello My MONGO_CONNECTION_URI is $SUPER_SECRET"
 
       - run: npm ci
 
