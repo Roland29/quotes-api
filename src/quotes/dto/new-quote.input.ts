@@ -9,5 +9,5 @@ export class NewQuoteInput {
 
   @Field({ nullable: true })
   @Length(0, 255)
-  sentence: string;
+  content: string;
 }

@@ -18,7 +18,7 @@ export class Quote {
 
   @Prop()
   @Field({ nullable: true })
-  sentence: string;
+  content: string;
 
   @Field()
   createdAt: Date;
