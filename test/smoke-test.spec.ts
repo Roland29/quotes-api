@@ -31,7 +31,7 @@ export default function () {
   const res = http.post(`${__ENV.API_URL}/graphql`, JSON.stringify({ query }), {
     headers,
   });
-  const checkRes = check(res, {
+  check(res, {
     'status is 200': (r) => r.status === 200,
   });
 }
